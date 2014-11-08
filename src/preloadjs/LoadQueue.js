@@ -799,7 +799,7 @@ TODO: WINDOWS ISSUES
 		} else {
 			while (args.length) {
 				var idOrSrc = args.pop();
-				var r = this.getResult(item);
+				var r = this.getResult(idOrSrc);
 
 				//Remove from the main load Queue
 				for (i = this._loadQueue.length-1;i>=0;i--) {
@@ -825,7 +825,7 @@ TODO: WINDOWS ISSUES
 				} else {
 					for (var i=this._currentLoads.length-1;i>=0;i--) {
 						var loadItem = this._currentLoads[i].getItem();
-						if (loadItem.id == item || loadItem.src == item) {
+						if (loadItem.id == idOrSrc || loadItem.src == idOrSrc) {
 							this._currentLoads.splice(i,1)[0].cancel();
 							itemsWereRemoved = true;
 							break;
