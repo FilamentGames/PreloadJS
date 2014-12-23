@@ -275,6 +275,20 @@ this.createjs = this.createjs || {};
 	var s = LoadQueue;
 
 	/**
+	 * <strong>REMOVED</strong>. Removed in favor of using `MySuperClass_constructor`.
+	 * See {{#crossLink "Utility Methods/extend"}}{{/crossLink}} and {{#crossLink "Utility Methods/promote"}}{{/crossLink}}
+	 * for details.
+	 *
+	 * There is an inheritance tutorial distributed with EaselJS in /tutorials/Inheritance.
+	 *
+	 * @method initialize
+	 * @protected
+	 * @deprecated
+	 */
+	// p.initialize = function() {}; // searchable for devs wondering where it is.
+
+
+	/**
 	 * An internal initialization method, which is used for initial set up, but also to reset the LoadQueue.
 	 * @method init
 	 * @param preferXHR
@@ -388,9 +402,7 @@ this.createjs = this.createjs || {};
 		 * @private
 		 * @since 0.4.1
 		 */
-		this._crossOrigin = (crossOrigin === true)
-			? "Anonymous" : (crossOrigin === false || crossOrigin == null)
-			? "" : crossOrigin;
+		this._crossOrigin = crossOrigin;
 
 		/**
 		 * An object hash of callbacks that are fired for each file type before the file is loaded, giving plugins the
@@ -905,9 +917,7 @@ this.createjs = this.createjs || {};
 				}
 
 				if (r) {
-					delete this._loadItemsById[r.id];
-					delete this._loadItemsBySrc[r.src];
-					this._disposeItem(r);
+					this._disposeItem(this.getItem(item));
 				} else {
 					for (var i = this._currentLoads.length - 1; i >= 0; i--) {
 						var loadItem = this._currentLoads[i].getItem();
@@ -1393,7 +1403,9 @@ this.createjs = this.createjs || {};
 			item.loadTimeout = s.loadTimeout;
 		}
 
-		item.crossOrigin = this._crossOrigin;
+		if (item.crossOrigin == null) {
+			item.crossOrigin = this._crossOrigin;
+		}
 
 		return item;
 	};

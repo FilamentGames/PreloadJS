@@ -80,7 +80,7 @@ a:visited {
 	//	LAYOUT
 		// Display, Positioning
 		// Box Model
-		padding: 0 2px;
+		//padding: 0 2px;
 		position: relative;
 		// Type
 	//	DISPLAY
@@ -90,8 +90,8 @@ a:visited {
 		z-index: 0;
 		// Type
 		font-family: $fontFamily-default;
-		font-weight: 700;
-		text-decoration: none;
+		font-weight: 400;
+		text-decoration: underline;
 		white-space: nowrap;
 	//	PSUEDO Elements & Classes
 		// Elements :: before, after, first-line, first-letter, selection
@@ -178,27 +178,29 @@ h2 {
 
 h3 {
 	@extend h1;
-	font-weight: 400;
+	font-size: $fontSize-smaller;
+	font-weight: 700;
 	text-transform: none;
-	@include bp($bp_width-600, max-) {
-		font-size: $fontSize-small;
-  	}
-  	@include bp($bp_width-600, min-) {
-		font-size: $fontSize-default;
-  	}
+}
+
+.args code,
+h3 code {
+	font-family: "effra", sans-serif;
+}
+h3 code {
+	font-weight: bold;
+}
+
+
+.paren {
+	font-size: $fontSize-smaller;
+	margin: auto 5px;
 }
 
 h4 {
-	@extend h1;
 	font-variant: normal;
-	//text-transform: uppercase;
-	line-height: $gridUnit-large;
-	@include bp($bp_width-600, max-) {
-		font-size: $fontSize-small;
-	}
-	@include bp($bp_width-600, min-) {
-		font-size: $fontSize-default;
-	}
+	line-height: $gridUnit-smallest;
+	font-size: $fontSize-smaller;
 }
 
 h5 {
@@ -247,7 +249,7 @@ p {
 
 // abbr[title] {}
 // b {}
-strong {font-weight:400;} // assumes the font is 'effra' weight: 700
+strong {font-weight:700;} // assumes the font is 'effra' weight: 700
 // dfn {}
 
 hr {
@@ -284,7 +286,7 @@ hr {
 
 code {
 	@extend %fontSmoothing;
-	font-size: $fontSize-smaller;
+	//font-size: $fontSize-smaller;
 	font-weight: 400;
 	font-family: $fontFamily-monospace;
 }
