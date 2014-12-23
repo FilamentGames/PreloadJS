@@ -1,10 +1,6 @@
 {
 	"name": "PreloadJS",
-<<<<<<< HEAD
-	"version": "0.4.1-filament",
-=======
 	"version": "0.6.0",
->>>>>>> 65b059e576ec0b4cc37f42c68ecdceb73a4e5cd7
 	"homepage": "https://github.com/CreateJS/PreloadJS",
 	"authors": [
 		"gskinner",
