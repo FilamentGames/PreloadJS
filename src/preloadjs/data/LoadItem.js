@@ -164,6 +164,15 @@ this.createjs = this.createjs || {};
 		 * @default 8000 (8 seconds)
 		 */
 		this.loadTimeout = 8000;
+		
+		/**
+		 * Whether or not to use the URL.createObjectUrl function to create in-memory cache of an object
+		 * for immediate retrieval (instead of relying on the browser file cache)
+		 * @property useCreateObjectURL
+		 * @type {boolean}
+		 * @default true
+		 */
+		this.useCreateObjectURL = true;
 	};
 
 	var p = LoadItem.prototype = {};
