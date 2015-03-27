@@ -131,7 +131,7 @@ this.createjs = this.createjs || {};
 
 			if (!_this._preferXHR) {
 				//document.body.removeChild(tag);
-			} else if (URL && _this._item.useCreateObjectURL) {
+			} else if (URL && _this._item.useCreateObjectUrl) {
 				var objURL = URL.createObjectURL(loader.getResult(true));
 				tag.src = objURL;
 				tag.onload = function () {
